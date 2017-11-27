@@ -1,0 +1,168 @@
+/*
+
+  New Manager Dashboard styles
+
+*/
+.user-list li{
+  padding:0  !important;
+}
+.user-list li.active{
+  background:#e9edf2;
+}
+.user-list li a{
+  display: block;
+  padding:12px 20px;
+}
+.user-list li a:hover{
+  background:#e9edf2;
+}
+.user-list li a:hover, .user-list li a:active, .user-list li a:focus{
+  text-decoration: none;
+}
+
+/*
+
+  User Views styles
+
+*/
+.todayList, .sleepLog, .sleepList{
+  padding:0;
+  margin:0;
+  list-style: none;
+}
+.todayList > li:first-child > span:first-child{
+  font-size:26px;
+  font-weight:700;
+  color:#22BAA0;
+}
+.todayList > li:first-child > span{
+  display:block;
+  font-size:16px;
+  text-align:center;
+}
+.todayList li, .sleepLog li, .sleepList li{
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  position:relative;
+}
+.todayList .pull-right, .sleepLog li div:last-child, .sleepList .pull-right{
+  color:#337ab7;
+  font-weight:700;
+}
+
+.sleepLog-heading{
+  height:70px;
+  position:relative;
+  padding:20px;
+  background: #3f4454;
+  color:#fff;
+  fill:#fff;
+}
+.sleepLog-heading > *{
+  display:inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin:0;
+}
+.sleepLog-heading >h4{
+  margin:0;
+  width:100%;
+  line-height:30px;
+}
+.sleepLog-heading > svg{
+  width:30px;
+  height:30px;
+  padding:4px;
+  cursor:pointer;
+  position:absolute;
+}
+.sleepLog-heading > svg.left{
+  left:20px;
+  top:20px;
+}
+.sleepLog-heading > svg.right{
+  transform:rotate(180deg);
+  right:20px;
+  top:20px;
+}
+.sleepLog li div{
+  display:inline-block;
+}
+.sleepLog li div:last-child{
+  position: absolute;
+  right:0;
+  top:50%;
+  transform: translateY(-50%);
+}
+.sleepLog li div:nth-child(-n+2) span{
+  display: block;
+  position: relative;
+}
+
+#viewContainer .panel{
+  max-width:1000px;
+  margin:0 auto;
+}
+
+/**********************************************************************
+
+  Overrides default template styles
+
+*/
+
+/* Manager Dashboard change padding on stats-info container */
+.stats-info .panel-body{
+  padding:0 0 20px 0 !important;
+}
+
+/* Replace profile image in side nav */
+.sidebar-profile-image > span{
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 26px;
+  line-height: 60px;
+  border-radius: 100%;
+  background: #363b4a;
+  color: #ccc;
+}
+
+/* Navbar */
+.navbar .logo-box {
+  background: #F25656 !important;
+}
+.navbar .logo-box a, .push-sidebar, .search-button a{
+  color:#fff !important;
+}
+.badge.badge-success{
+  background:#F25656 !important;
+}
+
+/* Charts container styles */
+#dashboard .graphContainer, #today .graphContainer {
+  height: 220px;
+}
+#sleep .graphContainer{
+  max-width:500px;
+  margin:0 auto;
+}
+#flotchart2 {
+  height: 278px;
+}
+
+@media (min-width:1200px){
+  #flotchart2{
+    height: 300px;
+  }
+}
+@media (min-width:481px){
+  #dashboard .graphContainer, #today .graphContainer {
+    height: 363px;
+  }
+}
+@media (max-width:480px){
+  #viewContainer #main-wrapper{
+    margin:0 !important;
+  }
+}
