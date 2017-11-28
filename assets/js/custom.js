@@ -1,117 +1,70 @@
 
 $( document ).ready(function() {
 
-    // Fetch Data
-    // fetchData();
-    let data =
-    {
-      user: {
-        today: {
-          alertnessGraph: [
-            {x:1, y:5},
-            {x:2, y:7.6},
-            {x:3, y:8.3},
-            {x:4, y:4.9},
-            {x:5, y:3},
-            {x:6, y:3.4},
-            {x:7, y:3},
-            {x:8, y:3.2},
-            {x:9, y:6}
-          ],
-          currentAlertness: 6,
-          totalSteps: 1200,
-          activeCalories: 360,
-          totalSleep: '9hrs 0min'
-        },
-        sleepLog: {
-          entries: [
-            {
-              startSleep: '12:00 AM',
-              endSleep: '9:00 AM',
-              totalSleep: '9hrs 0min'
-            }
-          ],
-          dailyTotal: '9hrs 0min',
-          dailyGoal: '8hrs 0min',
-          timesWokeUp: 4,
-          awakeFor: '20min',
-          inMotionFor: '5min'
-        }
-      }
-    };
-
-
-
-
-
-
-
-
-
-
+    fetchData();
 
 
     /***************************************************************
 
-      Initialize Line Chart on Manager Dashboard
+     Initialize Line Chart on Manager Dashboard
 
-    */
-    // Set default data to first user and make li active
-    let users = userData[0].data;
-    $('.user-list li:first-child').toggleClass('active');
+   */
+   // Set default data to first user and make li active
+   let users = userData[0].data;
+   $('.user-list li:first-child').toggleClass('active');
 
-    const ctx = document.getElementById('driversGraph').getContext('2d');
-    const graph = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['12am', '6am', '12pm', '6pm', '12am', '6am', '12pm', '6pm', '12am'],
-        datasets:[
-          {
-            data: users,
-            borderColor: '#22BAA0',
-            backgroundColor: 'rgba(34, 186, 160, 0.35)'
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-          display:false,
-          position:'left'
-        },
-        scales: {
-            yAxes: [{
-              gridLines:{
-                display: false
-              },
-              ticks: {
-                beginAtZero: true,
-                stepSize: 1,
-                max:10
-              }
-            }]
-        },
-        layout: {
-          padding: 0
-        },
-        elements:{
-          point:{
-            radius:3,
-            backgroundColor:'#22BAA0',
-            borderWidth:3,
-            borderColor:'#22BAA0',
-            pointHoverBorderColor:'#22BAA0',
-            pointHitRadius: 10,
-            hoverRadius:8,
-            hoverBorderWidth:5
-          },
-          line: {
-            tension:.1
-          }
-        }
-      }
-    });
+   const ctx = document.getElementById('driversGraph').getContext('2d');
+   const graph = new Chart(ctx, {
+     type: 'line',
+     data: {
+       labels: ['12am', '6am', '12pm', '6pm', '12am', '6am', '12pm', '6pm', '12am'],
+       datasets:[
+         {
+           data: users,
+           borderColor: '#22BAA0',
+           backgroundColor: 'rgba(34, 186, 160, 0.35)'
+         }
+       ]
+     },
+     options: {
+       responsive: true,
+       maintainAspectRatio: false,
+       legend: {
+         display:false,
+         position:'left'
+       },
+       scales: {
+           yAxes: [{
+             gridLines:{
+               display: false
+             },
+             ticks: {
+               beginAtZero: true,
+               stepSize: 1,
+               max:10
+             }
+           }]
+       },
+       layout: {
+         padding: 0
+       },
+       elements:{
+         point:{
+           radius:3,
+           backgroundColor:'#22BAA0',
+           borderWidth:3,
+           borderColor:'#22BAA0',
+           pointHoverBorderColor:'#22BAA0',
+           pointHitRadius: 10,
+           hoverRadius:8,
+           hoverBorderWidth:5
+         },
+         line: {
+           tension:.1
+         }
+       }
+     }
+   });
 
     // Add event listener to each user li
     $('.user-list').children().click(function(e){
@@ -125,90 +78,7 @@ $( document ).ready(function() {
 
 
 
-    /**********************************************************************
 
-     Initialize User Today Line chart
-
-    */
-    const ctx2 = document.getElementById('todayGraph').getContext('2d');
-    const todayGraph = new Chart(ctx2, {
-      type: 'line',
-      data: {
-        labels: ['12am', '6am', '12pm', '6pm', '12am', '6am', '12pm', '6pm', '12am'],
-        datasets:[
-          {
-            data: [{
-              x:1,
-              y:5
-            },{
-              x:2,
-              y:7.6
-            },{
-              x:3,
-              y:8.3
-            },{
-              x:4,
-              y:4.9
-            },{
-              x:5,
-              y:3
-            },{
-              x:6,
-              y:3.4
-            },{
-              x:7,
-              y:3
-            },{
-              x:8,
-              y:3.2
-            },{
-              x:9,
-              y:6
-            }],
-            borderColor: '#22BAA0',
-            backgroundColor: 'rgba(34, 186, 160, 0.35)'
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-          display:false,
-          position:'left'
-        },
-        scales: {
-            yAxes: [{
-              gridLines:{
-                display: false
-              },
-              ticks: {
-                beginAtZero: true,
-                stepSize: 1,
-                max:10
-              }
-            }]
-        },
-        layout: {
-          padding: 0
-        },
-        elements:{
-          point:{
-            radius:3,
-            backgroundColor:'#22BAA0',
-            borderWidth:3,
-            borderColor:'#22BAA0',
-            pointHoverBorderColor:'#22BAA0',
-            pointHitRadius: 10,
-            hoverRadius:8,
-            hoverBorderWidth:5
-          },
-          line: {
-            tension:.1
-          }
-        }
-      }
-    });
 
 
     /**************************************************************
@@ -285,4 +155,114 @@ function updateData(el, i, chart){
   // Update chart data
   chart.data.datasets[0].data = userData[i].data;
   chart.update();
+}
+
+function fetchData(){
+
+  const request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+        const Data = JSON.parse(request.responseText);
+        console.log(Data);
+
+        // Today
+        const alertnessGraph = Data.user.today.alertnessGraph;
+        todayGraph(alertnessGraph);
+        const currentAlertness = Data.user.today.currentAlertness;
+        const totalSteps = Data.user.today.totalSteps;
+        const activeCalories = Data.user.today.activeCalories;
+        const totalSleep = Data.user.today.totalSleep;
+
+        // SleepLog/Sleep
+        const entries = Data.user.sleepLog.entries;
+        const startSleep = entries[0].startSleep;
+        const endSleep = entries[0].endSleep;
+        const dailyTotal = Data.user.sleepLog.dailyTotal;
+        const dailyGoal = Data.user.sleepLog.dailyGoal;
+        const timesWokeUp = Data.user.sleepLog.timesWokeUp;
+        const awakeFor = Data.user.sleepLog.awakeFor;
+        const inMotionFor = Data.user.sleepLog.inMotionFor;
+
+        // populate fields
+        document.getElementById('currentAlertness').innerHTML = currentAlertness;
+        document.getElementById('totalSteps').innerHTML = totalSteps;
+        document.getElementById('activeCalories').innerHTML = activeCalories;
+        document.getElementById('totalSleep').innerHTML = totalSleep;
+        document.getElementById('startSleep').innerHTML = startSleep;
+        document.getElementById('endSleep').innerHTML = endSleep;
+        document.getElementById('entryTotalSleep').innerHTML = totalSleep;
+        document.getElementById('dailyTotal').innerHTML = dailyTotal;
+        document.getElementById('dailyGoal').innerHTML = dailyGoal;
+        document.getElementById('timesWokeUp').innerHTML = timesWokeUp;
+        document.getElementById('awakeFor').innerHTML = awakeFor;
+        document.getElementById('inMotionFor').innerHTML = inMotionFor;
+
+        console.log('user views populated');
+
+      }
+    };
+    request.open("GET", "http://curaegis.azurewebsites.net/api/watch/5", true);
+    request.send();
+}
+
+
+/**********************************************************************
+
+ Initialize User Today Line chart
+
+*/
+function todayGraph(graphData){
+  const ctx2 = document.getElementById('todayGraph').getContext('2d');
+  const todayGraph = new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['12am', '6am', '12pm', '6pm', '12am', '6am', '12pm', '6pm', '12am'],
+      datasets:[
+        {
+          data: graphData,
+          borderColor: '#22BAA0',
+          backgroundColor: 'rgba(34, 186, 160, 0.35)'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        display:false,
+        position:'left'
+      },
+      scales: {
+          yAxes: [{
+            gridLines:{
+              display: false
+            },
+            ticks: {
+              beginAtZero: true,
+              stepSize: 1,
+              max:10
+            }
+          }]
+      },
+      layout: {
+        padding: 0
+      },
+      elements:{
+        point:{
+          radius:3,
+          backgroundColor:'#22BAA0',
+          borderWidth:3,
+          borderColor:'#22BAA0',
+          pointHoverBorderColor:'#22BAA0',
+          pointHitRadius: 10,
+          hoverRadius:8,
+          hoverBorderWidth:5
+        },
+        line: {
+          tension:.1
+        }
+      }
+    }
+  });
 }

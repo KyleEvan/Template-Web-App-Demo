@@ -379,14 +379,14 @@
       <div class="page-sidebar-inner slimscroll">
         <div class="sidebar-header">
           <div class="sidebar-profile">
-            <a href="javascript:void(0);" id="profile-menu-link">
+            <!-- <a href="javascript:void(0);" id="profile-menu-link"> -->
               <div class="sidebar-profile-image">
                 <span class="glyphicon glyphicon-user"></span>
               </div>
               <div class="sidebar-profile-details">
                 <span>David Green<br><small>Fleet Manager</small></span>
               </div>
-            </a>
+            <!-- </a> -->
           </div>
         </div>
         <ul class="menu accordion-menu">
@@ -616,10 +616,10 @@
                       <canvas id="todayGraph"></canvas>
                     </div>
                     <ul class="todayList">
-                      <li><span>6</span><span>Current Alertness</span></li>
-                      <li><span>Total Steps</span><span class="pull-right">2341</span></li>
-                      <li><span>Active Calories</span><span class="pull-right">55.25</span></li>
-                      <li><span>Sleep</span><span class="pull-right">5hrs 40min</span></li>
+                      <li><span id="currentAlertness">6</span><span>Current Alertness</span></li>
+                      <li><span>Total Steps</span><span id="totalSteps" class="pull-right">2341</span></li>
+                      <li><span>Active Calories</span><span id="activeCalories" class="pull-right">55.25</span></li>
+                      <li><span>Sleep</span><span id="totalSleep" class="pull-right">5hrs 40min</span></li>
                     </ul>
                   </div>
                 </div>
@@ -653,9 +653,9 @@
 
                     <ul class="sleepLog">
                       <li>
-                        <div><span>Nov 15</span><span>12:00 AM</span></div>
-                        <div><span>Nov 15</span><span>8:00 AM</span></div>
-                        <div>8 hrs</div>
+                        <div><span>Nov 15</span><span id="startSleep">12:00 AM</span></div>
+                        <div><span>Nov 15</span><span id="endSleep">8:00 AM</span></div>
+                        <div id="entryTotalSleep">8 hrs</div>
                       </li>
                     </ul>
                   </div>
@@ -683,30 +683,30 @@
                     <h4 class="panel-title">Night of Nov 15th</h4>
                   </div>
                   <div class="graphContainer">
-                    <canvas id="sleepGraph" height="200"></canvas>
+                    <canvas id="sleepGraph"></canvas>
                   </div>
 
                   <div class="panel-body">
                     <ul class="sleepList">
                       <li>
                         <span>Daily Total</span>
-                        <span class="pull-right">9hrs 0min</span>
+                        <span id="dailyTotal" class="pull-right">9hrs 0min</span>
                       </li>
                       <li>
                         <span>Daily Goal</span>
-                        <span class="pull-right">8hrs 0min</span>
+                        <span id="dailyGoal" class="pull-right">8hrs 0min</span>
                       </li>
                       <li>
                         <span>Woke Up</span>
-                        <span class="pull-right">4 times</span>
+                        <span id="timesWokeUp" class="pull-right">4 times</span>
                       </li>
                       <li>
                         <span>Awake For</span>
-                        <span class="pull-right">20min</span>
+                        <span id="awakeFor" class="pull-right">20min</span>
                       </li>
                       <li>
                         <span>In Motion For</span>
-                        <span class="pull-right">5min</span>
+                        <span id="inMotionFor" class="pull-right">5min</span>
                       </li>
                     </ul>
                   </div>
